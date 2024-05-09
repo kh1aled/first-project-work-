@@ -32,7 +32,6 @@ $width: 85%;
   left: 0;
 }
 %text {
-  padding: 1.875vh;
   color: $black-1;
   font-family: MochiyPopPOne-Regular;
   text-align: center;
@@ -281,7 +280,7 @@ $width: 85%;
       }
     }
     .body-wrapper {
-      gap: $gap-2;
+      gap: 21vh;
       width: 90%;
       @include mediaQuery($medScreen_max_width) {
         & {
@@ -290,7 +289,7 @@ $width: 85%;
       }
       @include mediaQuery($smallScreen_max_width) {
         & {
-          gap: 28vh;
+          gap: 12vh;
         }
       }
       @include mediaQuery($Tablet_max_width) {
@@ -314,7 +313,7 @@ $width: 85%;
           padding-top: 0rem !important;
         }
         @include mediaQuery($smallScreen_max_width) {
-          padding-top: 1.4rem !important;
+          padding-top: 0rem !important;
         }
         @include mediaQuery($Tablet_max_width) {
           padding-top: 1.2rem !important;
@@ -336,7 +335,9 @@ $width: 85%;
             box-shadow: 0 0.25rem 0.25rem $shadow-1;
             visibility: hidden;
             cursor: pointer;
-            font-size: 2.5vh;
+            // font-size: 2.5vh;
+            font-size: 3vh;
+            padding: 17% 0% 14% 0%;
             &.show {
               animation-name: showCards2;
               animation-duration: 0.4s;
