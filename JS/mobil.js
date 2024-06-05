@@ -16,7 +16,6 @@ const successModal = document.querySelector(".success-wrapper");
 const arrows = document.querySelectorAll(".game .body .arrow");
 const pauseButton = document.querySelector(".game .pause.icon");
 const iconsArr = [...arrows, pauseButton];
-let answers = 0;
 let theTimer = 0;
 let animationCounter = 0;
 let counter = 0;
@@ -93,18 +92,18 @@ pauseButton.addEventListener("click", () => {
 });
 
 textItems.forEach((textItem) => {
-  textItem.addEventListener("dragstart", (event) => {
+  textItem.addEventListener("touchstart", (event) => {
     event.stopPropagation();
+    event.target.dataset.dragging = true;
     event.dataTransfer.setData("id", textItem.dataset.index);
     document.getElementById("start-audio").play();
   });
   textItem.addEventListener("drag", (event) => {
     textItem.style.opacity = "0";
-    console.log('drag2');
   });
-  textItem.addEventListener("dragend", (event) => {
+  textItem.addEventListener("touchend", (event) => {
     textItem.style.opacity = "1";
-    console.log('dragend');
+    event.target.dataset.dragging = false;
   });
 });
 
@@ -113,28 +112,7 @@ cardsText.forEach((cardItem) => {
     event.preventDefault();
   });
   cardItem.addEventListener("drop", (event) => {
-//update value 
-answers++;
-
-var xhr = new XMLHttpRequest();
-
-
-xhr.open('POST', '/update-database', true);
-
-xhr.setRequestHeader('Content-Type', 'application/json');
-
-xhr.send(JSON.stringify({ newValue: answers }));
-
-// تحديد ماذا يحدث عند استلام الرد من الخادم
-xhr.onreadystatechange = function() {
-    if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-            console.log('تم تحديث البيانات بنجاح', xhr.responseText);
-        } else {
-            console.error('حدث خطأ أثناء تحديث البيانات');
-        }
-    }
-};
+    console.log('drop');
     event.preventDefault();
     const index = cardItem.dataset.index;
     const textId = event.dataTransfer.getData("id");
@@ -250,6 +228,7 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
+
 
 
 function loadScript(src){

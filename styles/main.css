@@ -328,7 +328,7 @@ a {
   background-color: rgba(255, 255, 255, 0.75);
 }
 .game .body .body-wrapper {
-  gap: 21vh;
+  gap: 25vh;
   width: 90%;
 }
 @media (max-width: 992px) {
@@ -394,7 +394,7 @@ a {
   visibility: hidden;
   cursor: pointer;
   font-size: 3vh;
-  padding: 17% 0% 14% 0%;
+  padding: 1vh 2vw;
 }
 .game .body .body-wrapper .match-cards .match-card-wrapper .match-card.show {
   animation-name: showCards2;
@@ -424,7 +424,6 @@ a {
 .game .body .body-wrapper .cards .card-item .img {
   width: 100%;
   height: 80%;
-  padding: 0 0.9375rem;
   margin: auto;
 }
 @media (min-width: 992px) {
@@ -440,7 +439,8 @@ a {
   font-family: Mochiy Pop P One;
   font-weight: bold;
   text-shadow: 0 0 5px var(--ah-white), 0 0 5px var(--ah-white);
-  font-size: 5.5vh;
+  font-size: 3.5vh;
+  white-space: nowrap;
 }
 .game .body .body-wrapper .cards .card-item .text {
   width: 100%;
